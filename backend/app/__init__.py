@@ -7,6 +7,7 @@ def create_app(test_config=None):
     CORS(app)
 
     # Initialize the database
+    from app import models  # Ensure models are registered with Base.metadata before creation
     Base.metadata.create_all(bind=engine)
 
     # Register blueprints
